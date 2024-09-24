@@ -1,5 +1,6 @@
-import { Collapse } from "@mui/material"
+import { Collapse, Paper, Typography } from "@mui/material"
 import { useState } from "react"
+import AddCardOrListText from "./AddCardOrListText"
 
 const AddCardorList = () => {
 
@@ -8,11 +9,15 @@ const AddCardorList = () => {
   return (
     <div>
       <Collapse in={open}>
-        <h2>Sirve </h2>
+        <AddCardOrListText />
       </Collapse>
 
       <Collapse in={!open}>
-        <h2>no sirve</h2>
+        <Paper sx={{ margin: 1 }}>
+          <Typography>
+            + Add Card
+          </Typography>
+        </Paper>
       </Collapse>
     </div>
   )
