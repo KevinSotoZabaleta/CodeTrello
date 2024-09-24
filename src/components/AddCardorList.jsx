@@ -4,7 +4,7 @@ import AddCardOrListText from "./AddCardOrListText"
 
 const AddCardorList = () => {
 
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
 
   return (
     <div>
@@ -13,7 +13,7 @@ const AddCardorList = () => {
       </Collapse>
 
       <Collapse in={!open}>
-        <Paper sx={{ margin: 1 }}>
+        <Paper sx={{ margin: 1 , cursor: "pointer", "&:hover":{color: "blue"}}}>
           <Typography>
             + Add Card
           </Typography>
