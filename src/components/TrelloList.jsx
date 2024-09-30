@@ -10,14 +10,21 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   margin: theme.spacing(1),
 }));
 
-const TrelloList = () => {
+const TrelloList = ({list}) => {
+
+  console.log(list);
+  
+
   return (
     <StyledPaper>
       <CssBaseline />
       <ListTitle />
-      <TrelloCard />
-      <TrelloCard />
-      <AddCardorList />
+      {
+        list.cards.map(card => (
+          <TrelloCard card={card} key={card.id} />
+        ))
+      }
+      <AddCardorList type="card" />
     </StyledPaper>
   );
 };

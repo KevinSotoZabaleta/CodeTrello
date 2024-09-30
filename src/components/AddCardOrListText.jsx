@@ -1,45 +1,39 @@
-import { IconButton, InputBase, Paper, TextField } from '@mui/material'
+import { IconButton, TextField } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import ClearIcon from '@mui/icons-material/Clear';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import { useState } from 'react';
 
-import { useState } from 'react'
+const AddCardOrListText = ({type, setOpen}) => {
 
-const AddCardOrListText = () => {
-
-  const [title, setTitle] = useState("")
+  const [title, setTitle] = useState("");
 
   return (
-    <>
-      <Box sx={{ margin: 1 }}>
-        <TextField
-          label="Title for this card"
-          variant="outlined" value={title}
-          onChange={e => setTitle(e.target.value)}
-          multiline />
-      </Box>
-      <div>
-        <Button sx={{margin:1}} variant="contained" color="success"> Success </Button>
-        <IconButton>
+    <Box sx={{ padding: 2, maxWidth: 400, margin: 'auto', boxShadow: 2, borderRadius: 2 }}>
+      <TextField
+        label={type === "card" ? "Title for this card" : "Enter list title"}
+        onBlur={() => setOpen(false)} 
+        variant="outlined"
+        value={title}
+        onChange={e => setTitle(e.target.value)}
+        multiline
+        fullWidth
+        sx={{ mb: 2 }}
+      />
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Button variant="contained" color="success" sx={{ flexGrow: 1, mr: 1 }}>
+          {type === "card" ? "Add card" : "Add List"}
+        </Button>
+        <IconButton aria-label="clear" onClick={() => setOpen(false)} >
           <ClearIcon />
         </IconButton>
-        <IconButton>
+        <IconButton aria-label="more" >
           <MoreHorizIcon />
         </IconButton>
-      </div>
-    </>
-    //   <Paper sx={{ margin: 1 }}>
-    //     <InputBase
-    //       multiline
-    //       value={title}
-    //       onChange={e => setTitle(e.target.value)}
-    //       placeholder='Enter a title for this card' />
+      </Box>
+    </Box>
+  );
+};
 
-
-
-    //   </Paper>
-  )
-}
-
-export default AddCardOrListText
+export default AddCardOrListText;

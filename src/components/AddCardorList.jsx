@@ -2,20 +2,20 @@ import { Collapse, Paper, Typography } from "@mui/material"
 import { useState } from "react"
 import AddCardOrListText from "./AddCardOrListText"
 
-const AddCardorList = () => {
+const AddCardorList = ({type}) => {
 
   const [open, setOpen] = useState(true)
 
   return (
     <div>
       <Collapse in={open}>
-        <AddCardOrListText />
+        <AddCardOrListText type={type} setOpen={setOpen} />
       </Collapse>
 
       <Collapse in={!open}>
-        <Paper sx={{ margin: 1 , cursor: "pointer", "&:hover":{color: "blue"}}}>
+        <Paper sx={{ margin: 1 , cursor: "pointer", "&:hover":{color: "blue"}}} onClick={() => setOpen(true)} >
           <Typography>
-            + Add Card
+            {type === "card"? "+ Add a card" : "+ Add another list"}
           </Typography>
         </Paper>
       </Collapse>
