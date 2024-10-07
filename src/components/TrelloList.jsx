@@ -18,7 +18,7 @@ const TrelloList = ({list}) => {
   return (
     <StyledPaper>
       <CssBaseline />
-      <ListTitle />
+      <ListTitle title={list.title} id={list.id} />
       {
         list.cards.map(card => (
           <TrelloCard card={card} key={card.id} />
