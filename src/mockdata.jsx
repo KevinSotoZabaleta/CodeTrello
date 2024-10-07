@@ -1,3 +1,5 @@
+import uuid from "react-uuid"
+
 const mockData = {
     lists: {
     "01list":{
@@ -12,7 +14,7 @@ const mockData = {
         }, {
             id: "03card",
             title: "comprar pan"
-        },
+        }
     ]
     },
     "02list":{

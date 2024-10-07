@@ -12,6 +12,7 @@ const ListTitle = ({title, listId}) => {
 
   const handlerBlur = () => {
     // Update the title
+    //Invoca fucion y le pasa los parametros
     updateListTitle(listId, newTitle)
     setOpen(false)
   }
